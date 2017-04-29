@@ -30,11 +30,15 @@ typedef struct {
 flist_t* flist_new();
 void flist_free( flist_t *flist );
 
-void flist_add( flist_t *flist, void *item );
+void flist_insert( flist_t *flist, void *item );
+int flist_insert_after( flist_t *flist, void *search_item, void *item );
 void flist_push( flist_t *flist, void *item );
 
 int flist_pop( flist_t *flist, void **item );
-int flist_del( flist_t *flist, void *item );
+int flist_remove( flist_t *flist, void *item );
+
+flist_node_t* flist_search( flist_t *flist, void *item );
+flist_node_t* flist_search_cmp( flist_t *flist, int (*cmp)(flist_node_t *node, void *arg), void *arg );
 
 void flist_iterate( flist_t *flist, int (*cb)(flist_node_t *node, void *arg), void *arg );
 
