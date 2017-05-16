@@ -36,6 +36,7 @@ void flist_push( flist_t *flist, void *item );
 
 int flist_pop( flist_t *flist, void **item );
 int flist_remove( flist_t *flist, void *item );
+// TODO: flist_remove_node
 
 flist_node_t* flist_search( flist_t *flist, void *item );
 flist_node_t* flist_search_cmp( flist_t *flist, int (*cmp)(flist_node_t *node, void *arg), void *arg );
