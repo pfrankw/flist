@@ -27,7 +27,7 @@ typedef struct {
 } flist_t;
 
 
-flist_t* flist_new();
+flist_t* flist_new(void);
 void flist_free( flist_t *flist );
 
 void flist_insert( flist_t *flist, void *item );

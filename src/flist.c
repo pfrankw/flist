@@ -3,7 +3,7 @@
 #include "flist/flist.h"
 
 
-flist_t* flist_new(){
+flist_t* flist_new(void){
     return calloc(1, sizeof(flist_t));
 }
 
