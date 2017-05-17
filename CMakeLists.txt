@@ -1,6 +1,6 @@
 cmake_minimum_required( VERSION 3.0 )
 
-project( "flist" C )
+project( "libflist" C )
 
 SET( EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/build/bin )
 SET( LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/build/lib )
