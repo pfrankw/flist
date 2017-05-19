@@ -190,13 +190,16 @@ flist_node_t* flist_search_cmp( flist_t *flist, int (*cmp_fn)(flist_node_t *node
 void flist_iterate( flist_t *flist, int (*cb)(flist_node_t *node, void *arg), void *arg ){
 
     int r = 0;
-    flist_node_t *cur = 0;
+    flist_node_t *cur = 0, *next = 0;
 
     if( !flist || !flist->start || !cb )
         return;
 
-    for( cur = flist->start; cur && r == 0; cur = cur->next ){ // Loop until there are items or cb returns != 0
+    for( cur = flist->start; cur && r == 0; ){ // Loop until there are items or cb returns != 0
+    	next = cur->next;
         r = cb( cur, arg );
+        // cur might have been freed after the callback call
+        cur = next;
     }
 
     return;
